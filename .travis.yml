@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- 14
+
+env: -DATABASE_URL=postgresql://postgres@localhost:5432/garment_app
+
+before_script:
+- npm install
+- psql -c 'create database garment_app;' -U postgres
+- psql -U postgres -d garment_app -a -f ./sql/garment.sql
+
+services: 
+- postgresql

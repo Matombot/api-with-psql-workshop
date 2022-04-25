@@ -1,7 +1,7 @@
 {
   "name": "build-an-api-workshop",
   "version": "1.0.0",
-  "description": "",
+  "description": "This workshop builds on the [psql refresher workshop]() you should use SQL that you wrote in that workshop to create the API endpoints needed to make the Unit Tests pass.",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -13,8 +13,22 @@
     "axios": "^0.26.1",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "express-handlebars": "^6.0.5",
     "mocha": "^9.2.2",
-    "pg-promise": "^10.11.1",
+    "pg-promise": "^10.11.1"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
     "supertest": "^6.2.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matombot/api-with-psql-workshop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Matombot/api-with-psql-workshop/issues"
+  },
+  "homepage": "https://github.com/Matombot/api-with-psql-workshop#readme"
 }

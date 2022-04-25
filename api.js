@@ -21,7 +21,7 @@ module.exports = function (app, db) {
 			garments = await db.many('select * from garment where season = $1', [season]);
 		}
 		else if (gender && season) {
-			garments = await db.many('select * from garment where gender =$1 and season = $2', ['gender', 'season']);
+			garments = await db.many('select * from garment where gender =$1 and season = $2', [gender, season]);
 		}
 		res.json({
 			data: garments
@@ -36,13 +36,13 @@ module.exports = function (app, db) {
 
 			const { id } = req.params;
 			// const garment = await db.oneOrNone(`select * from garment where id = $1`, [id]);
-			const garment = await db.one(`select * from garment where id = $1`, [id]);
+			const garment = await db.oneOrNone(`select * from garment where id = $1`, [id]);
 			// you could use code like this if you want to update on any column in the table
 			// and allow users to only specify the fields to update
 
-			// let params = { ...garment, ...req.body };
-			// const { description, price, img, season, gender } = params;
-
+			let params = { ...garment, ...req.body };
+			const { description, price, img, season, gender } = params;
+			await db.none('update garment set gender = $1, description =$2, price = $3,img =$4,season = $5 where id =$6 ', [description, price, img, season, gender, id])
 
 			res.json({
 				status: 'success'
@@ -85,7 +85,7 @@ module.exports = function (app, db) {
 			const { description, price, img, season, gender } = req.body;
 
 			// insert a new garment in the database
-			await db.none('insert into garment(description, img, season, gender, price) values ($1,$2,$3,$4,$5)',['Golf t-shirt', 'collared-128x128-455119.png', 'Summer', 'Male', '79.24']);
+			await db.none('insert into garment(description, img, season, gender, price) values ($1,$2,$3,$4,$5)', ['Golf t-shirt', 'collared-128x128-455119.png', 'Summer', 'Male', '79.24']);
 			res.json({
 				status: 'success',
 			});
@@ -100,7 +100,7 @@ module.exports = function (app, db) {
 	});
 
 	app.get('/api/garments/grouped', async function (req, res) {
-		const result = await db.many('select gender,count(*) from garment group by gender order by count(*) asc' ,)
+		const result = await db.many('select gender,count(*) from garment group by gender order by count(*) asc',)
 		// use group by query with order by asc on count(*)
 
 		res.json({
@@ -114,7 +114,7 @@ module.exports = function (app, db) {
 		try {
 			const { gender } = req.query;
 			// delete the garments with the specified gender
-await db.none('delete from garment where gender =$1',gender);
+			await db.none('delete from garment where gender =$1', gender);
 			res.json({
 				status: 'success'
 			})

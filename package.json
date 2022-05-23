@@ -17,13 +17,11 @@
     "express": "^4.17.3",
     "express-handlebars": "^6.0.5",
     "mocha": "^9.2.2",
-    "pg-promise": "^10.11.1"
+    "pg-promise": "^10.11.1",
+    "supertest": "^6.2.3"
   },
   "directories": {
     "test": "test"
-  },
-  "devDependencies": {
-    "supertest": "^6.2.3"
   },
   "repository": {
     "type": "git",

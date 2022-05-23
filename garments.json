@@ -1,0 +1,212 @@
+[
+	{
+		"img": "collared-128x128-455119.png",
+		"description": "Golf t-shirt",
+		"price": "79.24",
+		"gender": "Male",
+		"season": "Summer"
+	},
+	{
+		"img": "frock-128x128-455120.png",
+		"description": "Orange dress(formal)",
+		"price": "249.99",
+		"gender": "Female",
+		"season": "Summer"
+	},
+	{
+		"img": "hat-128x128-455121.png",
+		"description": "Hat",
+		"price": "129.99",
+		"gender": "Unisex",
+		"season": "Autumn"
+	},
+	{
+		"img": "hoodie-128x128-455122.png",
+		"description": "Red hooded jacket",
+		"price": "299.99",
+		"gender": "Male",
+		"season": "Winter"
+	},
+	{
+		"img": "jacket-128x128-455123.png",
+		"description": "Blue Hoodie",
+		"price": "399.99",
+		"gender": "Unisex",
+		"season": "Winter"
+	},
+	{
+		"img": "jeans-128x128-455124.png",
+		"description": "Blue Pants",
+		"price": "99.99",
+		"gender": "Male",
+		"season": "All Seasons"
+	},
+	{
+		"img": "mens-128x128-455125.png",
+		"description": "Brown Jacket",
+		"price": "199.99",
+		"gender": "Male",
+		"season": "Winter"
+	},
+	{
+		"img": "mens-128x128-455126.png",
+		"description": "Brown Shirt",
+		"price": "149.99",
+		"gender": "Male",
+		"season": "All Seasons"
+	},
+	{
+		"img": "mens-128x128-455127.png",
+		"description": "Yellow Shorts",
+		"price": "199.99",
+		"gender": "Male",
+		"season": "Summer"
+	},
+	{
+		"img": "mens-128x128-455128.png",
+		"description": "Lime Vest",
+		"price": "69.99",
+		"gender": "Male",
+		"season": "Summer"
+	},
+	{
+		"img": "mens-128x128-455129.png",
+		"description": "Brown Jacket - Casual",
+		"price": "399.99",
+		"gender": "Male",
+		"season": "All Seasons"
+	},
+	{
+		"img": "mens-128x128-455133.png",
+		"description": "Blue Bomber",
+		"price": "699.99",
+		"gender": "Male",
+		"season": "All Seasons"
+	},
+	{
+		"img": "scarf-128x128-455138.png",
+		"description": "Scarf",
+		"price": "49.99",
+		"gender": "Unisex",
+		"season": "Winter"
+	},
+	{
+		"img": "skirt-128x128-455130.png",
+		"description": "Short Skirt(Lime)",
+		"price": "199.99",
+		"gender": "Female",
+		"season": "Summer"
+	},
+	{
+		"img": "sweater-128x128-455131.png",
+		"description": "Red Jersey",
+		"price": "599.99",
+		"gender": "Male",
+		"season": "Winter"
+	},
+	{
+		"img": "t-128x128-455135.png",
+		"description": "Short Sleeve T-shirt",
+		"price": "79.25",
+		"gender": "Male",
+		"season": "Summer"
+	},
+	{
+		"img": "tank-128x128-455134.png",
+		"description": "Vest",
+		"price": "29.99",
+		"gender": "Female",
+		"season": "Summer"
+	},
+	{
+		"img": "track-128x128-455132.png",
+		"description": "Leggings(Brown)",
+		"price": "89.99",
+		"gender": "Female",
+		"season": "All Seasons"
+	},
+	{
+		"img": "tunic-128x128-455137.png",
+		"description": "Orange Dress",
+		"price": "399.99",
+		"gender": "Female",
+		"season": "Summer"
+	},
+	{
+		"img": "womans-128x128-455136.png",
+		"description": "Blazer",
+		"price": "399.99",
+		"gender": "Female",
+		"season": "All Seasons"
+	},
+	{
+		"img": "womans-128x128-455139.png",
+		"description": "Golf t-shirt(Red)",
+		"price": "79.24",
+		"gender": "Female",
+		"season": "All Seasons"
+	},
+	{
+		"img": "womans-128x128-455140.png",
+		"description": "Lime Dress(Long)",
+		"price": "399.99",
+		"gender": "Female",
+		"season": "Summer"
+	},
+	{
+		"img": "womans-128x128-455141.png",
+		"description": "Blue Blazer",
+		"price": "399.99",
+		"gender": "Male",
+		"season": "All Seasons"
+	},
+	{
+		"img": "womans-128x128-455142.png",
+		"description": "Blue Jeans",
+		"price": "499.99",
+		"gender": "Female",
+		"season": "All Seasons"
+	},
+	{
+		"img": "womans-128x128-455143.png",
+		"description": "Red Leggings",
+		"price": "299.99",
+		"gender": "Female",
+		"season": "All Seasons"
+	},
+	{
+		"img": "womans-128x128-455144.png",
+		"description": "Red Shirt",
+		"price": "199.99",
+		"gender": "Male",
+		"season": "All Seasons"
+	},
+	{
+		"img": "womans-128x128-455145.png",
+		"description": "Long Sleeve Top(brown & lime)",
+		"price": "299.99",
+		"gender": "Female",
+		"season": "All Seasons"
+	},
+	{
+		"img": "womans-128x128-455146.png",
+		"description": "Lime Dress(Short)",
+		"price": "599.99",
+		"gender": "Female",
+		"season": "Summer"
+	},
+	{
+		"img": "womans-128x128-455147.png",
+		"description": "Short Sleeve Top(Red)",
+		"price": "199.99",
+		"gender": "Female",
+		"season": "Summer"
+	},
+	{
+		"img": "womens-128x128-455148.png",
+		"description": "Beach Shorts",
+		"price": "79.99",
+		"gender": "Male",
+		"season": "Summer"
+	}
+]

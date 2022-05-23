@@ -1,38 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<script src="//unpkg.com/alpinejs" defer></script>
+	<title>Missy tee</title>
+
+	<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script> -->
+	<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-	<h1>Calling APIs in AlpineJS</h1>
+
+	<div class="container" x-data="misstee">
+		<h1>Missy Tee - clothing store</h1>
+		<div class="topSection">
+			<div class="filter">
+
+				<div class="gaments">
+
+
+					<h2>Filter</h2>
+					<div class="genders">
+						<label>
+							<input @change="filterData()" x-model="genderFilter" type="radio" name="gender" value="All"> All
+						</label>
+
+						<label>
+							<input type="radio" @change="filterData()" x-model="genderFilter" name="gender" value="Male"> Male
+						</label>
+
+						<label>
+							<input type="radio" @change="filterData()" x-model="genderFilter" name="gender" value="Female"> Female
+						</label>
+						<label>
+							<input type="radio" @change="filterData()" x-model="genderFilter" name="gender" value="Unisex"> Unisex
+						</label>
+					</div>
+					<div class="seasons">
+
+						<label>
+							<input @change="filterData()" x-model="seasonFilter" type="radio" name="season" value="All"> All
+						</label>
+						<label>
+							<input @change="filterData()" x-model="seasonFilter" type="radio" name="season" value="Summer"> Summer
+						</label>
+						<label>
+							<input @change="filterData()" x-model="seasonFilter" type="radio" name="season" value="Winter"> Winter
+						</label>
+						<label>
+							<input @change="filterData()" x-model="seasonFilter" type="radio" name="season" value="All Seasons"> All seasons
+						</label>
+					</div>
+					<div>
+						Filter by price range:
+						<input @change="priceFilter()" x-model="maxPrice" type="range" name="priceRange" max="1000" step="50" class="priceRange" value="0">
+						R<span x-text="maxPrice" class="showPriceRange"></span>
+					</div>
+					
+				</div>
+			</div>
+
+			<div class="message hidden">
+
+			</div>
+
+			<div class="addGarment ">
+
+					 <div class="add button mt1">
+						<a onclick="showSnackBar()" href="">Add garmet</a>
+					</div>
+				<div class="add button mt1 hidden">
+					<a href="">Add garmet</a>
+				</div>
+
+				<div class="add garment hidden">
+					<h2>Add garment</h2>
+					<img src="/images/{{img}}" alt="">
+
+					<form action="/garment/" method="post" class="addGarmentForm">
+
+						<div class="field">
+							<label for="">Description</label>
+							<input type="text" name="description" class="description">
+						</div>
+						<div class="field">
+							<label for="">Image</label>
+							<input type="url" name="img" class="img">
+						</div>
+						<div class="field">
+							<label for="">Price</label>
+							<input type="number" name="price" step="0.01" class="price">
+						</div>
+						<div class="field">
+							<label for="">Gender</label>
+							<div>
+								<input type="text" name="gender" class="gender">
+							</div>
+						</div>
+						<div class="field">
+							<label for="">Season</label>
+							<div>
+								<input type="text" name="season" class="season">
+							</div>
+						</div>
+						<div class="mt1">
+							<input type="button" name="action" value="Add" class="addGarmentBtn">
+							<input type="button" name="action" value="Hide" class="hideAddGarmetBtn">
+						</div>
+						<!-- </form> -->
+				</div>
+
+			</div>
+		</div>
+		<div class="garmentsResultsSection">
+			<h2>Garments</h2>
+
+			<div class="searchResults">
+				<div>
+					There are:<span x-text="garments.length"></span>
+					<div class="garments">
+						<template x-for="garment in garments">
+							<!-- <span x-text=""></span> -->
+
+							<div class="garment">
+								<img x-bind:src="`./images/${garment.img}`">
+								<div x-text="garment.description"></div>
+								<div x-text="garment.price"></div>
+							</div>
+						</template>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<script src="app.js"></script>
+		<script src="field-manager.js"></script>
 	
-	<h2>Call API on page load</h2>
-	<div x-data="{ users : []}" x-init="fetch('https://jsonplaceholder.typicode.com/users')
-			.then(r => r.json())
-			.then(data => users = data )"  >
-		<ul>
-			<template x-for="user in users" >
-				<li x-text="user.name" ></li>
-			</template>
-		</ul>
-	</div>
-
-	<h2>Call API on click</h2>
-	<div x-data="{ users : [] }" x-init=""  >
-
-		<button @click="fetch('https://jsonplaceholder.typicode.com/users')
-			.then(r => r.json())
-			.then(data => users = data )"   >Load users</button>
-		<ul>
-			<template x-for="user in users" >
-				<li x-text="user.name" ></li>
-			</template>
-		</ul>
-	</div>
 
 </body>
+
 </html>

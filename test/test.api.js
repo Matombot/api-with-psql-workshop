@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const DATABASE_URL = process.env.DATABASE_URL;
+const DATABASE_URL = process.env.DATABASE_URL || 'localhost:5432/garment_app';
 const pgp = PgPromise({});
 const db = pgp(DATABASE_URL);
 

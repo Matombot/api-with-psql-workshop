@@ -78,7 +78,7 @@
 					<a href="">Add garmet</a>
 				</div>
 
-				<div class="add garment hidden">
+				<div class="add garment ">
 					<h2>Add garment</h2>
 					<img src="/images/{{img}}" alt="">
 
@@ -112,7 +112,7 @@
 							<input type="button" name="action" value="Add" class="addGarmentBtn">
 							<input type="button" name="action" value="Hide" class="hideAddGarmetBtn">
 						</div>
-						<!-- </form> -->
+					
 				</div>
 
 			</div>
@@ -125,12 +125,12 @@
 					There are:<span x-text="garments.length"></span>
 					<div class="garments">
 						<template x-for="garment in garments">
-							<!-- <span x-text=""></span> -->
 
 							<div class="garment">
 								<img x-bind:src="`./images/${garment.img}`">
-								<div x-text="garment.description"></div>
-								<div x-text="garment.price"></div>
+								<span x-text="garment.description"></span>
+								<span x-text="garment.price"></span>
+	
 							</div>
 						</template>
 					</div>

@@ -1,12 +1,13 @@
 document.addEventListener('alpine:init', () => {
     Alpine.data('misstee', () => ({
 
-        garments: '',
+        garments: [],
+        addgarments:false,
         seasonFilter: '',
         genderFilter: '',
         maxPrice: 0,
-        init() {
-            fetch('/api/garments')
+        allGarments() {
+            fetch('http:localhost:4018/api/garments')
                 .then(r => r.json())
                 .then(results => {
                     // console.log(results)

@@ -7,7 +7,7 @@ document.addEventListener('alpine:init', () => {
         genderFilter: '',
         maxPrice: 0,
         allGarments() {
-            fetch('http:localhost:4018/api/garments')
+            fetch('../garments.json')
                 .then(r => r.json())
                 .then(results => {
                     // console.log(results)

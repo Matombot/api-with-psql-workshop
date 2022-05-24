@@ -16,10 +16,13 @@
 
 <body>
 
-	<div class="container" x-data="misstee">
+	<div class="container" x-data="{garments :[]}" x-init="fetch('./garments.json')
+	.then(r => r.json())
+	.then(userData => garments =userData)">
+
 		<h1>Missy Tee - clothing store</h1>
 		<div class="topSection">
-			<div class="filter">
+			<!-- <div class="filter">
 
 				<div class="gaments">
 
@@ -63,7 +66,7 @@
 					</div>
 					
 				</div>
-			</div>
+			</div> -->
 
 			<div class="message hidden">
 
@@ -78,7 +81,7 @@
 					<a href="">Add garmet</a>
 				</div>
 
-				<div class="add garment ">
+				<div class="add garment hidden">
 					<h2>Add garment</h2>
 					<img src="/images/{{img}}" alt="">
 
@@ -122,7 +125,8 @@
 
 			<div class="searchResults">
 				<div>
-					There are:<span x-text="garments.length"></span>
+					<span x-text="garments.length"></span> garments found
+					
 					<div class="garments">
 						<template x-for="garment in garments">
 
@@ -139,7 +143,7 @@
 			</div>
 		</div>
 
-		<script src="app.js"></script>
+		<!-- <script src="app.js"></script> -->
 
 	
 

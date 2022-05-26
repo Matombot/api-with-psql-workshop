@@ -11,8 +11,29 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+//should we use a SSL connection
+// let useSSL = false;
+// let local = process.env.LOCAL || false;
+// if (process.env.DATABASE_URL && !local) {
+//   useSSL = true;
+//   console.log('im herreeeeeee');
+// }
 
-const DATABASE_URL = process.env.DATABASE_URL || 'localhost:5432/garment_app';
+// const connectionString = process.env.DATABASE_URL;
+
+// const pool = new Client({
+//   connectionString,
+//   ssl: {
+//     rejectUnauthorized: false,
+//   },
+// });
+
+const connectionString =
+  process.env.DATABASE_URL || 'postgresql://localhost:5432/garment_app';
+
+const pool = new Pool({
+  connectionString,
+});
 const pgp = PgPromise({});
 const db = pgp(DATABASE_URL);
 

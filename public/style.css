@@ -68,3 +68,7 @@ img {
 	margin: 0.25em;
 	border-radius: 0.5em;
 }
+.addBtn {
+	background-color: blueviolet;
+	border-radius: 0.25em;
+}

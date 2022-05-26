@@ -12,7 +12,12 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const DATABASE_URL = process.env.DATABASE_URL;
+// const DATABASE_URL = process.env.DATABASE_URL;
+const connectionString = process.env.DATABASE_URL || 'postgresql://localhost:5432/garment_app';
+
+const pool = new Pool({
+  connectionString,
+});
 const pgp = PgPromise({});
 const db = pgp(DATABASE_URL);
 

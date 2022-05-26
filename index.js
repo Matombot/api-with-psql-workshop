@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // const DATABASE_URL = process.env.DATABASE_URL;
-const connectionString = process.env.DATABASE_URL || 'postgresql://localhost:5432/garment_app';
+const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://localhost:5432/garment_app';
 
 // const pool = new pool({
 //   connectionString,

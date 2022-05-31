@@ -89,11 +89,11 @@ document.addEventListener('alpine:init', () => {
             //     this.error = true;
             // }
 
-            // else {
-            //     this.garments.push(this.description && this.img && this.gender && this.season && this.price);
-            //     this.info_message = 'New garment has been added!'
-            //     this.error = false;
-            // }
+            else {
+                this.garments.push(this.description && this.img && this.gender && this.season && this.price);
+                this.info_message = 'New garment has been added!'
+                 this.error = false;
+             }
 
             setTimeout(() => {
                 this.info_message = '';

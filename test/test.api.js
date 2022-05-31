@@ -28,10 +28,11 @@ app.use(express.urlencoded({ extended: false }));
 //   },
 // });
 
+const DATABASE_URL = process.env.DATABASE_URL;
 
-  process.env.DATABASE_URL || 'postgres://gary:gar123@localhost:5432/garment_app';
-
-
+// const pool = new Pool({
+//   connectionString,
+// });
 const pgp = PgPromise({});
 const db = pgp(DATABASE_URL);
 

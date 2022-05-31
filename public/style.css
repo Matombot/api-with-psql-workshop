@@ -24,51 +24,68 @@ img {
 }
 
 .garment {
-	flex : 1;
+	flex: 1;
 	background-color: rosybrown;
 	border: 1px solid greenyellow;
 	padding: 1em;
 	margin: 0.25em;
 	border-radius: 0.5em;
 }
-.message[error]{
+
+.message[error] {
 	padding: 1em;
 	margin-top: 1em;
 	background-color: orange;
-} 
+}
+
 .mt1 {
 	margin-top: 1em;
-	
+
 }
-.hidden{
+
+.hidden {
 	display: none;
 }
-.field label{
+
+.field label {
 	display: block;
 	width: 2em;
 	margin-bottom: 0.2em;
 
 }
 
-.error {
-	background-color: red;
-	padding: 1em;
-	margin-top: 1em;
-}
+
 .success {
 	background-color: blue;
 	padding: 1em;
 	margin-top: 1em;
 }
+
 .login {
-	flex : 1;
+	flex: 1;
 	background-color: rgb(13, 201, 185);
 	border: 1px solid rgb(182, 17, 119);
 	padding: 1em;
 	margin: 0.25em;
 	border-radius: 0.5em;
 }
+
 .addBtn {
 	background-color: blueviolet;
 	border-radius: 0.25em;
+}
+
+.message {
+	background-color: green;
+	height: 1em;
+	width: 50em;
+	color: white;
+	margin-bottom: 1em;
+	text-align: center;
+	padding: 1em;
+	border-radius: 0.25em;
+}
+
+.error {
+	background-color: crimson;
 }

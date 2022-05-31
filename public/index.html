@@ -16,10 +16,8 @@
 
 <body>
 
-	<div class="container"
-		x-data="{garments :[],genderFilter:'',seasonFilter:'',price:'', maxPrice:0, description: '',img: '',season: '',gender: '',price: '',addBtn:false,newgarmentAdded:[]}" x-init="fetch('./garments.json')
-	     .then(r => r.json())
-	    .then(userData => garments =userData)">
+	<div class="container"x-data="misstee" x-init="loadData" x-cloak
+	>
 
 		<h1>Missy Tee - clothing store</h1>
 		<div class="topSection">
@@ -31,62 +29,55 @@
 					<h2>Filter</h2>
 					<div class="genders">
 						<label>
-							<input @change="filterData()" x-model="genderFilter" type="radio" name="gender" value="All">
-							All
+							<input @change="Filter" x-model="gender" type="radio" name="gender" value="All" > All
 						</label>
 
 						<label>
-							<input type="radio" @change="filterData()" x-model="genderFilter" name="gender"
-								value="Male"> Male
+							<input type="radio" @change="Filter" x-model="gender" name="gender" value="Male" > Male
 						</label>
 
 						<label>
-							<input type="radio" @change="filterData()" x-model="genderFilter" name="gender"
-								value="Female"> Female
+							<input type="radio" @change="Filter" x-model="gender" name="gender" value="Female" > Female
 						</label>
 						<label>
-							<input type="radio" @change="filterData()" x-model="genderFilter" name="gender"
-								value="Unisex"> Unisex
+							<input type="radio" @change="Filter" x-model="gender" name="gender" value="Unisex" > Unisex
 						</label>
 					</div>
 					<div class="seasons">
 
 						<label>
-							<input @change="filterData()" x-model="seasonFilter" type="radio" name="season" value="All">
-							All
+							<input @change="Filter()" x-model="season" type="radio" name="season" value="All">All
 						</label>
 						<label>
-							<input @change="filterData()" x-model="seasonFilter" type="radio" name="season"
-								value="Summer"> Summer
+							<input @change="Filter()" x-model="season" type="radio" name="season" value="Summer" > Summer
 						</label>
 						<label>
-							<input @change="filterData()" x-model="seasonFilter" type="radio" name="season"
-								value="Winter"> Winter
+							<input @change="Filter()" x-model="season" type="radio" name="season" value="Winter" > Winter
 						</label>
 						<label>
-							<input @change="filterData()" x-model="seasonFilter" type="radio" name="season"
-								value="All Seasons"> All seasons
+							<input @change="Filter()" x-model="season" type="radio" name="season" value="All Seasons"> All seasons
 						</label>
 					</div>
 					<div>
 						Filter by price range:
-						<input @change="priceFilter()" x-model="maxPrice" type="range" name="priceRange" max="1000"
+						<input @change="priceFilter()" x-model="price" type="range" name="priceRange" max="1000"
 							step="50" class="priceRange" value="0">
-						R<span x-text="maxPrice.toFixed(2)" class="showPriceRange">00.00</span>
+						R<span x-text="price" class="showPriceRange"> 0 </span>.00
 					</div>
 
 				</div>
 			</div>
 
-			<div class="message hidden">
-
-			</div>
-
+			
+			<div class="message" x-bind:class="error ? 'error' : ''" x-text="info_message" x-show="info_message != ''"
+			x-transition  x-cloak></div>
+			
 			<div class="addGarment ">
 
 				<div class="add button mt1">
 
-					<button class="addBtn" @click="addBtn = !addBtn" x-html="addBtn ? 'Cancel' : 'Add Garments'">Add garment</button>
+					<button class="addBtn" @click="addBtn = !addBtn" x-html="addBtn ? 'Cancel' : 'Add Garments'">Add
+						garment</button>
 				</div>
 
 
@@ -106,7 +97,7 @@
 						</div>
 						<div class="field">
 							<label for="">Price</label>
-							<input type="number" name="price" step="0.01" class="price" x-model="price">
+							<input type="number" name="price" step="0.01" class="price" x-model="newPrice">
 						</div>
 						<div class="field">
 							<label for="">Gender</label>
@@ -121,12 +112,18 @@
 							</div>
 						</div>
 						<div class="mt1">
-							<button type="button" class="addGarmentBtn"
-                    @click="garments.push({description: description,img: img,season: season,gender: gender,price: price})">Add</button>
-							<input type="button" name="action" value="Hide" class="hideAddGarmetBtn">
+							<button type="button" class="addGarmentBtn" x-model="description"
+								@click="addMessages">Add</button>
+							<!-- <input @click="addGarments()" type="button" value="Add" name="action" class="addGarmentBtn"> -->
+							<button type="button" class="removeGarmentBtn" @click="garments.filter({description: description,img: img,season: season,gender: gender,price: price})">Remove</button>
+								
 						</div>
-
-                    </form>
+						<!-- <template x-if="description ==description,img==img,season==season,gender==gender,price== price">
+							<div class="message " x-show.transition="addGarmentBtn" style=" background-color: orange;">
+								garment Already exist
+							</div> -->
+						</template>
+					</form>
 
 				</div>
 
@@ -145,7 +142,7 @@
 							<div class="garment">
 								<img x-bind:src="`./images/${garment.img}`">
 								<span x-text="garment.description"></span>
-								<span x-text="garment.price"></span>
+								<span x-text="'R' + garment.price"></span>
 
 							</div>
 						</template>
@@ -157,9 +154,7 @@
 
 
 	</div>
-	<!-- <script src="app.js"></script> -->
-
-
+	<script src="app.js"></script>
 
 </body>
 

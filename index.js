@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // const DATABASE_URL = process.env.DATABASE_URL;
-const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://localhost:5432/garment_app';
+const DATABASE_URL = process.env.DATABASE_URL || 'postgres://gary:gar123@localhost:5432/garment_app';
 
 // const pool = new pool({
 //   connectionString,
@@ -23,7 +23,9 @@ const db = pgp(DATABASE_URL);
 
 API(app, db);
 const PORT = process.env.PORT || 4018;
-
+app.get('/',function(req,res){
+    res.render('index.html')
+})
 app.listen(PORT, function () {
     console.log(`App started on port ${PORT}`)
 });

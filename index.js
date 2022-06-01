@@ -13,13 +13,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // const DATABASE_URL = process.env.DATABASE_URL;
-const DATABASE_URL = process.env.DATABASE_URL || 'postgres://gary:gar123@localhost:5432/garment_app';
 
 // const pool = new pool({
 //   connectionString,
 // });
 const pgp = PgPromise({});
-const db = pgp(DATABASE_URL);
+const config = {
+    connectionString:process.env.DATABASE_URL || 'postgres://gary:gar123@localhost:5432/garment_app',
+    max: 30,
+    // ssl: {rejectUnauthorized :false}
+
+}
+const db = pgp(config);
 
 API(app, db);
 const PORT = process.env.PORT || 4018;

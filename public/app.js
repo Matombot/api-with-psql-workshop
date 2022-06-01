@@ -64,12 +64,12 @@ document.addEventListener('alpine:init', () => {
 
         addMessages() {
 
-            const entrys = {
+            const entry = {
                 description: this.description, img: this.img, newPrice: this.newPrice, gender: this.gender, season: this.season,
             }
             if (this.description && this.img && this.newPrice && this.gender && this.season != '') {
                 axios
-                    .post('/api/garment', entrys)
+                    .post('/api/garment', entry)
                     .then(r => this.loadData())
                     .then(() => {
                         this.info_message = 'New garment has been added!'

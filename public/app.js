@@ -63,23 +63,24 @@ document.addEventListener('alpine:init', () => {
         },
 
         addMessages() {
-            // const fields = {
-            //     description: this.description, img: this.img, newPrice: this.newPrice, gender: this.gender, season: this.season,
-            // }
-            // if (this.description && this.img && this.newPrice && this.gender && this.season != '') {
-            //     axios
-            //         .post('/api/garments', fields)
-            //         .then(r => {
-            //             axios
-            //                 .get('/api/garments')
-            //             .then(r => { this.garments = r.userData.data })
-            //         });
-            //     this.info_message = 'New garment has been added!'
-            //     this.error = false;
-            // }
+           
+            const entrys = {
+                description: this.description, img: this.img, newPrice: this.newPrice, gender: this.gender, season: this.season,
+            }
+            if (this.description && this.img && this.newPrice && this.gender && this.season != '') {
+                axios
+                    .post('/api/garments', entrys)
+                    .then(r => {
+                        axios
+                            .get('/api/garments')
+                        .then(r => { this.garments = r.userData.data })
+                    });
+                this.info_message = 'New garment has been added!'
+                this.error = false;
+            }
 
 
-             if (!this.description || !this.img || !this.newPrice) {
+             else if (!this.description || !this.img || !this.newPrice) {
                 this.info_message = 'Please fill all the empty fields'
                 this.error = true;
             }
@@ -88,12 +89,6 @@ document.addEventListener('alpine:init', () => {
             //     this.info_message = 'data already exists'
             //     this.error = true;
             // }
-
-            else {
-                this.garments.push(this.description && this.img && this.gender && this.season && this.price);
-                this.info_message = 'New garment has been added!'
-                 this.error = false;
-             }
 
             setTimeout(() => {
                 this.info_message = '';

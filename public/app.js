@@ -63,20 +63,18 @@ document.addEventListener('alpine:init', () => {
         },
 
         addMessages() {
-           
+
             const entrys = {
                 description: this.description, img: this.img, newPrice: this.newPrice, gender: this.gender, season: this.season,
             }
             if (this.description && this.img && this.newPrice && this.gender && this.season != '') {
                 axios
                     .post('/api/garment', entrys)
-                    .then(r => {
-                        axios
-                            .get('/api/garments')
-                        .then(r => { this.garments = r.loadData.data })
-                    });
-                this.info_message = 'New garment has been added!'
-                this.error = false;
+                    .then(r => this.loadData())
+                    .then(() => {
+                        this.info_message = 'New garment has been added!'
+                        this.error = false
+                    })
             }
 
 
@@ -89,14 +87,13 @@ document.addEventListener('alpine:init', () => {
             //     this.info_message = 'data already exists'
             //     this.error = true;
             // }
-
             setTimeout(() => {
                 this.info_message = '';
                 this.error = false;
             }, 3000);
         }
-            
-    
+
+
     }))
-}) 
+})
 

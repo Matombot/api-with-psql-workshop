@@ -69,11 +69,11 @@ document.addEventListener('alpine:init', () => {
             }
             if (this.description && this.img && this.newPrice && this.gender && this.season != '') {
                 axios
-                    .post('/api/garments', entrys)
+                    .post('/api/garment', entrys)
                     .then(r => {
                         axios
                             .get('/api/garments')
-                        .then(r => { this.garments = r.userData.data })
+                        .then(r => { this.garments = r.loadData.data })
                     });
                 this.info_message = 'New garment has been added!'
                 this.error = false;
